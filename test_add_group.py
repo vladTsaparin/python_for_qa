@@ -11,36 +11,34 @@ class AppDynamicsJob(unittest.TestCase):
     def setUp(self):
         # AppDynamics will automatically override this web driver
         # as documented in https://docs.appdynamics.com/display/PRO44/Write+Your+First+Script
-        self.driver = webdriver.Firefox()
-        self.driver.implicitly_wait(30)
-        self.base_url = "https://www.google.com/"
-        self.verificationErrors = []
-        self.accept_next_alert = True
+        self.wd = webdriver.Firefox()
+        self.wd.implicitly_wait(30)
+
     
     def test_app_dynamics_job(self):
-        driver = self.driver
-        driver.get("https://netfanz.inprogress.rocks/auth/login")
-        driver.find_element_by_name("email").click()
-        driver.find_element_by_name("email").clear()
-        driver.find_element_by_name("email").send_keys("influencer_1636021815@netfanz.com")
-        driver.find_element_by_name("password").click()
-        driver.find_element_by_name("password").clear()
-        driver.find_element_by_name("password").send_keys("fYDFcwY0ngq7M_4_1636021815")
-        driver.find_element_by_xpath("//button[@type='submit']").click()
+        wd = self.wd
+        wd.get("https://netfanz.inprogress.rocks/auth/login")
+        wd.find_element_by_name("email").click()
+        wd.find_element_by_name("email").clear()
+        wd.find_element_by_name("email").send_keys("influencer_1636021815@netfanz.com")
+        wd.find_element_by_name("password").click()
+        wd.find_element_by_name("password").clear()
+        wd.find_element_by_name("password").send_keys("fYDFcwY0ngq7M_4_1636021815")
+        wd.find_element_by_xpath("//button[@type='submit']").click()
     
     def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
+        try: self.wd.find_element(by=how, value=what)
         except NoSuchElementException as e: return False
         return True
     
     def is_alert_present(self):
-        try: self.driver.switch_to_alert()
+        try: self.wd.switch_to_alert()
         except NoAlertPresentException as e: return False
         return True
     
     def close_alert_and_get_its_text(self):
         try:
-            alert = self.driver.switch_to_alert()
+            alert = self.wd.switch_to_alert()
             alert_text = alert.text
             if self.accept_next_alert:
                 alert.accept()
