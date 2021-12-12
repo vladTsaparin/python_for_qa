@@ -14,17 +14,16 @@ class AppDynamicsJob(unittest.TestCase):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
 
-    
     def test_app_dynamics_job(self):
         wd = self.wd
-        wd.get("https://netfanz.inprogress.rocks/auth/login")
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys("influencer_1636021815@netfanz.com")
-        wd.find_element_by_name("password").click()
-        wd.find_element_by_name("password").clear()
-        wd.find_element_by_name("password").send_keys("fYDFcwY0ngq7M_4_1636021815")
-        wd.find_element_by_xpath("//button[@type='submit']").click()
+        wd.get("https://www.katalon.com/sign-in/")
+        wd.find_element_by_name("user_email").click()
+        wd.find_element_by_name("user_email").clear()
+        wd.find_element_by_name("user_email").send_keys("vlad.caparin51+katalon@gmail.com")
+        wd.find_element_by_name("user_pass").click()
+        wd.find_element_by_name("user_pass").clear()
+        wd.find_element_by_name("user_pass").send_keys("3W3L5Mn8cJh4pqK!")
+        wd.find_element_by_xpath("//input[@type='submit']").click()
     
     def is_element_present(self, how, what):
         try: self.wd.find_element(by=how, value=what)
