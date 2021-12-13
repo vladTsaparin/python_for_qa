@@ -17,28 +17,21 @@ class AppDynamicsJob(unittest.TestCase):
     def test_app_dynamics_job(self):
         wd = self.wd
         wd.get("https://www.katalon.com/sign-in/")
+        self.login(wd, user_email="vlad.caparin51+katalon@gmail.com", user_pass="3W3L5Mn8cJh4pqK!")
+
+    def login(self, wd, user_email, user_pass):
         wd.find_element_by_name("user_email").click()
         wd.find_element_by_name("user_email").clear()
-        wd.find_element_by_name("user_email").send_keys("vlad.caparin51+katalon@gmail.com")
+        wd.find_element_by_name("user_email").send_keys(user_email)
         wd.find_element_by_name("user_pass").click()
         wd.find_element_by_name("user_pass").clear()
-        wd.find_element_by_name("user_pass").send_keys("3W3L5Mn8cJh4pqK!")
+        wd.find_element_by_name("user_pass").send_keys(user_pass)
         wd.find_element_by_xpath("//input[@type='submit']").click()
-    
-    def is_element_present(self, how, what):
-        try: self.wd.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.wd.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
     
     def tearDown(self):
         # To know more about the difference between verify and assert,
         # visit https://www.seleniumhq.org/docs/06_test_design_considerations.jsp#validating-results
-        self.driver.quit()
+        self.wd.quit()
 
 if __name__ == "__main__":
     unittest.main()
