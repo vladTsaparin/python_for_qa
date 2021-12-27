@@ -16,17 +16,17 @@ class AppDynamicsJob(unittest.TestCase):
 
     def test_app_dynamics_job(self):
         wd = self.wd
-        wd.get("https://www.katalon.com/sign-in/")
-        self.login(wd, user_email="vlad.caparin51+katalon@gmail.com", user_pass="3W3L5Mn8cJh4pqK!")
+        wd.get("https://netfanz:1qaz2wsx0@netfanz.inprogress.rocks/auth/login")
+        self.login(wd, user_email="influencer_1634565141@netfanz.com", user_pass="influencer_1634565141")
 
     def login(self, wd, user_email, user_pass):
-        wd.find_element_by_name("user_email").click()
-        wd.find_element_by_name("user_email").clear()
-        wd.find_element_by_name("user_email").send_keys(user_email)
-        wd.find_element_by_name("user_pass").click()
-        wd.find_element_by_name("user_pass").clear()
-        wd.find_element_by_name("user_pass").send_keys(user_pass)
-        wd.find_element_by_xpath("//input[@type='submit']").click()
+        wd.find_element_by_name("email").click()
+        wd.find_element_by_name("email").clear()
+        wd.find_element_by_name("email").send_keys(user_email)
+        wd.find_element_by_name("password").click()
+        wd.find_element_by_name("password").clear()
+        wd.find_element_by_name("password").send_keys(user_pass)
+        wd.find_element_by_xpath("//button[@type='submit']").click()
     
     def tearDown(self):
         # To know more about the difference between verify and assert,
