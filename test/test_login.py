@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from application import Application
+from fixture.application import Application
 import pytest
 
 @pytest.fixture
