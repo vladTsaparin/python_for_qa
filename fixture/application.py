@@ -1,5 +1,5 @@
 from selenium import webdriver
-from session import SessionHelper
+from fixture.session import SessionHelper
 
 
 class Application:
