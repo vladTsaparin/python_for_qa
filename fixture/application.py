@@ -11,7 +11,7 @@ class Application:
 
     def open_login_page(self):
         wd = self.wd
-        wd.get("https://netfanz:1qaz2wsx0@netfanz.inprogress.rocks/auth/login")
+        wd.get("https://netfanz:2qaz2wsx0@netfanz.inprogress.rocks/auth/login")
 
     def destroy(self):
         self.wd.quit()
