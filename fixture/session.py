@@ -1,5 +1,6 @@
 
 class SessionHelper:
+
     def __init__(self, app):
         self.app = app
 
@@ -12,7 +13,7 @@ class SessionHelper:
         wd.find_element_by_name("password").click()
         wd.find_element_by_name("password").clear()
         wd.find_element_by_name("password").send_keys(user_pass)
-        wd.find_element_by_xpath("//button[@type='submit']").click()
+        wd.find_element_by_xpath("//button[@class='primary btn btn-default']").click()
 
     def logout(self):
         wd = self.app.wd
@@ -37,4 +38,4 @@ class SessionHelper:
         wd.find_element_by_name("password").clear()
         wd.find_element_by_name("password").send_keys(user.password)
         wd.find_element_by_name("acceptTermsAndConditions").click()
-        wd.find_element_by_xpath("//button[@type='submit']").click()
+        wd.find_element_by_xpath("//button[@class='primary btn btn-default']").click()
