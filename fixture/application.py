@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 from fixture.session import SessionHelper
+from fixture.navigation import NavigationHelper
+
 
 
 class Application:
@@ -10,6 +12,7 @@ class Application:
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(60)
         self.session = SessionHelper(self)
+        self.navigation = NavigationHelper(self)
 
     def open_home_page(self, domain):
         wd = self.wd
