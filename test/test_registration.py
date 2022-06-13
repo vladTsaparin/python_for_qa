@@ -2,6 +2,8 @@
 from fixture.application import Application
 import pytest
 from model.user import User
+from datetime import datetime
+
 
 
 @pytest.fixture
@@ -12,4 +14,4 @@ def app(request):
 
 
 def test_registration_valid(app):
-    app.session.registration(User(email="vlad.caparin51+1@gmail.com", password="QAtl00584", first_name="first_name", last_name="last_name"))
+    app.session.registration(User(email=f"for.qa14+{datetime.now().microsecond}@gmail.com", password="QAtl00584", first_name="first_name", last_name="last_name"))
