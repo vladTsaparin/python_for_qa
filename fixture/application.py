@@ -14,24 +14,20 @@ class Application:
         self.session = SessionHelper(self)
         self.navigation = NavigationHelper(self)
 
-    def open_home_page(self, domain):
+    def open_home_page(self, domain='https://rozetka.com.ua/'):
         wd = self.wd
         wd.get(domain)
-        self.cookies_accept()
 
-    def open_login_page(self):
+    def open_login_form(self):
         wd = self.wd
-        self.open_home_page('https://jysk.ua/')
-        wd.find_element(By.XPATH, '//a[@href="/customer/login"]').click()
+        self.open_home_page()
+        wd.find_element(By.XPATH, '//li[@class="header-actions__item header-actions__item--user"]').click()
 
-    def cookies_accept(self):
-        wd = self.wd
-        wd.find_element(By.CLASS_NAME, 'coi-banner__accept').click()
 
     def open_registration_page(self):
         wd = self.wd
-        self.open_login_page()
-        wd.find_element(By.XPATH, '//a[@href="/customer/create"]').click()
+        self.open_login_form()
+        wd.find_element(By.XPATH, '//button[@class="auth-modal__register-link button button--link ng-star-inserted"]').click()
 
     def destroy(self):
         self.wd.quit()
