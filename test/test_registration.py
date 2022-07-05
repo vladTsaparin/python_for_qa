@@ -12,6 +12,7 @@ def test_registration_new_user(app):
         phone="930000000"
     ))
 
+
 """""
 def test_registration_with_existing_email(app):
     app.session.registration(User(
