@@ -13,5 +13,12 @@ class Application:
         self.session = SessionHelper(self)
         self.navigation = NavigationHelper(self)
 
+    def is_valid(self):
+        try:
+            self.wd.current_url
+            return True
+        except:
+            return False
+
     def destroy(self):
         self.wd.quit()

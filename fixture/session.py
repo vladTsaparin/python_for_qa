@@ -15,7 +15,8 @@ class SessionHelper:
 
     def logout(self):
         wd = self.app.wd
-        wd.find_element_by_name("email").click()
+        self.app.navigation.open_cabinet_page()
+        wd.find_element_by_xpath('//span[contains(text(),"Вихід")]').click()
 
     def registration(self, user):
         wd = self.app.wd

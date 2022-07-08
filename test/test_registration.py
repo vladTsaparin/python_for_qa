@@ -3,7 +3,7 @@ from model.user import User
 from datetime import datetime
 
 
-def test_registration_new_user(app):
+"""def test_registration_new_user(app):
     app.session.registration(User(
         email=f"for.qa14+{datetime.now().microsecond}@gmail.com",
         password="1Qaz2wsx0",
@@ -13,7 +13,7 @@ def test_registration_new_user(app):
     ))
 
 
-"""""
+"""
 def test_registration_with_existing_email(app):
     app.session.registration(User(
         email=f"for.qa14@gmail.com",
@@ -22,4 +22,4 @@ def test_registration_with_existing_email(app):
         last_name="другий",
         phone="930000000"
     ))
-"""
+
